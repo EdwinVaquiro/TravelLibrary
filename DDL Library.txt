@@ -1,0 +1,30 @@
+create database TravelLibrary;
+
+use TravelLibrary;
+
+create table editoriales(
+id int primary key
+, nombre varchar(45) not null
+, sede varchar(45) not null
+)
+
+create table libros (
+ ISBN int primary key not null
+, editoriales_id int foreign key references editoriales(id)
+, titulo varchar(45)
+, sinopsis TEXT
+, n_paginas varchar(45)
+)
+
+create table autores(
+ id INT primary key
+ , nombre varchar(45)
+ , apellidos varchar(45)
+ )
+
+ create table autores_has_libros(
+	autores_id int foreign key references autores(id)
+	,libros_ISBN int foreign key references libros(ISBN)
+
+	primary key(autores_id, libros_ISBN)
+ )

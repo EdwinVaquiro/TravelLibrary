@@ -1,0 +1,49 @@
+﻿@model IEnumerable<PruebaTravel.Models.DetalleLibros>
+@{
+    ViewData["Title"] = "Details";
+}
+
+@foreach(var item in Model)
+{
+    <div class="card">
+        <div class="card-header">
+            <h1>@item.Titulo</h1>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-8">
+                    <p class="text-justify">
+                        Sinopsis: <br>
+                        @item.Sinopsis
+                    </p>
+                </div>
+
+                <div class="col-4">
+                    <p class="text-justify">
+                        Autor del libro: @item.Autor <br>
+                        Número de páginas: @item.Npaginas 
+                    </p>
+                </div>
+
+              
+
+            </div>
+
+        </div>
+
+            <div class="card-footer">
+               <div class="row">
+                   <div class="col-md-12">
+                       <p>
+                          Editorial: @item.Editorial <br>
+                          Sede de la editorial: @item.SedeEditorial
+                       </p>
+                   </div>
+               </div>
+            </div>
+
+        </div>
+}
+
+
+
