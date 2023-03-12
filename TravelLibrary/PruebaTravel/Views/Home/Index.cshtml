@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PruebaTravel.Models.LibrosAutores>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4 h1">Bienvenido</h1>
+    <p>Transforma tu hogar en un lugar fascinante con la Biblioteca Travel, disfruta de una gran variedad de libros para ti y toda tu familia. <br />
+    Aquí podrás ver nuestro cátalogo de libros disponibles!    
+    </p>
+</div>
+
+@if ( Model == null)
+{
+    <script type="text/javascript">
+        alert('Error al mostrar el catalogo de libros')
+    </script>
+}else
+{
+    <div class="table-responsive">
+        <table class="table table-hover table-light table-striped">
+            <thead>
+                <tr>
+                    <td>Libro</td>
+                    <td>Autor</td>
+                    <td>N° Páginas</td>
+                    <td>Ver Detalles</td>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Titulo</td>
+                    <td>@item.Autor</td>
+                    <td>@item.Npaginas </td>
+                    <td>
+                        <a asp-action="Details" asp-route-libro="@item.IdLibro" >
+                            <img src="https://img.icons8.com/ios-glyphs/256/search-more.png" style="width:5%" class="img-fluid">
+                        </a>
+                        
+                    
+                    </td>
+                </tr>
+
+            }
+
+        </table>
+
+    </div>
+}
+ 
+
